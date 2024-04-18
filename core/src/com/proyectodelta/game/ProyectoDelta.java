@@ -27,10 +27,11 @@ public class ProyectoDelta extends ApplicationAdapter {
 	public void render () {
 		ScreenUtils.clear(1, 1, 1, 1);
 		batch.begin();
-		batch.draw(flechaArriba.spriteTextura, 0, 0);
-		batch.draw(flechaAbajo.spriteTextura, 60, 0);
-		batch.draw(flechaIzquierda.spriteTextura, 120, 0);
-		batch.draw(flechaDerecha.spriteTextura, 180, 0);
+		batch.draw(null, 0, 0, 0, 0, 0, 0, 0, 0, 0, true);;
+		batch.draw(flechaAbajo.spriteTextura, 60, 0, flechaAbajo.spriteTextura.getWidth() / 2, flechaAbajo.spriteTextura.getHeight() / 2, flechaAbajo.spriteTextura.getWidth(), flechaAbajo.spriteTextura.getHeight(), 1, 1, flechaAbajo.spriteTextura.getRotation(), 0, 0, flechaAbajo.spriteTextura.getWidth(), flechaAbajo.spriteTextura.getHeight(), false, false);
+		batch.draw(flechaIzquierda.spriteTextura, 120, 0, flechaIzquierda.spriteTextura.getWidth() / 2, flechaIzquierda.spriteTextura.getHeight() / 2, flechaIzquierda.spriteTextura.getWidth(), flechaIzquierda.spriteTextura.getHeight(), 1, 1, flechaIzquierda.spriteTextura.getRotation(), 0, 0, flechaIzquierda.spriteTextura.getWidth(), flechaIzquierda.spriteTextura.getHeight(), false, false);
+		batch.draw(flechaDerecha.spriteTextura, 180, 0, flechaDerecha.spriteTextura.getWidth() / 2, flechaDerecha.spriteTextura.getHeight() / 2, flechaDerecha.spriteTextura.getWidth(), flechaDerecha.spriteTextura.getHeight(), 1, 1, flechaDerecha.spriteTextura.getRotation(), 0, 0, flechaDerecha.spriteTextura.getWidth(), flechaDerecha.spriteTextura.getHeight(), false, false);
+
 		int a = 1;
 		System.out.println(a = a+a);
 		batch.end();

@@ -13,6 +13,7 @@ public class Flecha{
     Sprite spriteTextura = new Sprite(texturaFlechas, texturaFlechas.getWidth(), texturaFlechas.getHeight());
     boolean flechaEstado = false;
     int flechaDireccion = 0;
+    
 
     Flecha(){
 
