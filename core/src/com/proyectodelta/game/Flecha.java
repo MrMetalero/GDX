@@ -3,6 +3,7 @@ package com.proyectodelta.game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 
 public class Flecha{
 
@@ -10,39 +11,53 @@ public class Flecha{
 
    
 
-    Sprite spriteTextura = new Sprite(texturaFlechas, texturaFlechas.getWidth(), texturaFlechas.getHeight());
+    TextureRegion regiontextura = new TextureRegion(texturaFlechas);
     boolean flechaEstado = false;
-    int flechaDireccion = 0;
+    int flechaDireccion = 0; // 1- 0 arriba      2- 90 izquierda      3- 180 abajo    4- 270 -derecha
+    int rotacion = 0;
+
     
+    static int posY = 50;
+    static int posicionActualFlechas = 50;
+    int posX;
 
     Flecha(){
 
     }
 
     Flecha(int flechaDir){
-        flechaDireccion = flechaDir;
+        this.flechaDireccion = flechaDir;
     switch (flechaDireccion) {
         case 1:
-        spriteTextura.setRotation(0);
-            
+            this.rotacion = 0;
+            posX = posicionActualFlechas;
+            posicionActualFlechas += 55;
         break;
             
             
         case 2:
-        spriteTextura.setRotation(180);
+            this.rotacion = 90;
+            posX = posicionActualFlechas;
+            posicionActualFlechas += 55;
         break;
 
 
         case 3:
-        spriteTextura.setRotation(-90);
+            this.rotacion = 180;
+            posX = posicionActualFlechas;
+            posicionActualFlechas += 55;
         break;
 
         case 4:
-        spriteTextura.setRotation(90);
+            this.rotacion = 270;
+            posX = posicionActualFlechas;
+            posicionActualFlechas += 55;
         break;
 
         default:
-        spriteTextura.setRotation(0);
+            this.rotacion = 0;
+            posX = posicionActualFlechas;
+            posicionActualFlechas += 55;
             break;
     }
 
