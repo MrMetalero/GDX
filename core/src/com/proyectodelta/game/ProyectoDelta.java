@@ -35,14 +35,32 @@ public class ProyectoDelta extends ApplicationAdapter {
 			Flecha.posicionActualFlechas = 0;
 			patronActivo = true;
 			patronFlechas = GenerarPatron.generarPatron(7);
+
 			
 		}
 
 		if (patronActivo) {
 			for (Flecha flecha : patronFlechas) {
-				batch.draw(flecha.regiontextura, flecha.posX,Flecha.posY, flecha.texturaFlechas.getWidth()/2, flecha.texturaFlechas.getHeight()/2, flecha.texturaFlechas.getWidth(), flecha.texturaFlechas.getHeight(), 1, 1, flecha.rotacion);
+
+				if (flecha.activa) {
+					batch.draw(flecha.regiontextura, flecha.posX,Flecha.posY, flecha.texturaFlechas.getWidth()/2, flecha.texturaFlechas.getHeight()/2, flecha.texturaFlechas.getWidth(), flecha.texturaFlechas.getHeight(), 1, 1, flecha.rotacion);
+			
+				}
+
+				
 			}
+
+
+
 		}
+
+		if(Gdx.input.isKeyPressed(Keys.S)) { // Apaga el patron
+			patronActivo = false;	
+		}
+
+
+
+
 		
 
 		

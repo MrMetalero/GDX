@@ -23,6 +23,16 @@ public class GenerarPatron {
 
             random = (int)(Math.random() * range) + lowerBound; // genera un numero para la dirección de la flecha
             Flecha flechaNueva = new Flecha(random); // Genera una flecha con una dirección random
+
+            if (i == 0) {
+                flechaNueva.isNext = true;
+            }
+            
+
+
+
+
+
             patronFlechas.add(flechaNueva); // Añade las flechas nuevas a un Arraylist que devolverá la función
             
 
