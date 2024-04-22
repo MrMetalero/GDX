@@ -9,13 +9,13 @@ import com.badlogic.gdx.math.Vector2;
 public class Flecha{
 
     /**Texturas */
-    static Texture texturaFlechas = new Texture("flecha.png");
+    Texture texturaFlechas = new Texture("flecha.png");
     TextureRegion regiontextura = new TextureRegion(texturaFlechas);
 
     /**Estado */
-    boolean activa;
-    boolean flechaEstado = false;
-    boolean isNext = false;
+    boolean activa; // para comprobar si debe printearse
+    boolean seleccionada; // para comprobar si se ha pulsado la tecla correspondiente a esa flecha
+    boolean isNext = false; // comprueba si es la flecha activa ahora mismo
 
     /**Direccion */
     int flechaDireccion = 0; // 1- 0 arriba      2- 90 izquierda      3- 180 abajo    4- 270 -derecha
