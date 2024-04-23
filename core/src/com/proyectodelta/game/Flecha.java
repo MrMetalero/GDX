@@ -79,6 +79,13 @@ public class Flecha{
         
     }
 
+    @Override
+    public String toString() {
+        return "Flecha [texturaFlechas=" + texturaFlechas + ", regiontextura=" + regiontextura + ", activa=" + activa
+                + ", seleccionada=" + seleccionada + ", isNext=" + isNext + ", flechaDireccion=" + flechaDireccion
+                + ", rotacion=" + rotacion + ", posX=" + posX + "]\n\n";
+    }
+
 
 
 

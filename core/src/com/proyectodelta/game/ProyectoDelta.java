@@ -47,7 +47,10 @@ public class ProyectoDelta extends ApplicationAdapter {
 			// comprueba si se ha cambiado a activa alguna flecha
 			patronFlechas = LogicaFlecha.comprobarFlechaActiva(patronFlechas); 
 
-			// dinuja cada flecha si la flecha está marcada como activa
+			for (Flecha flecha : patronFlechas) {
+				System.out.println(flecha.toString());
+			}
+			// dibuja cada flecha si la flecha está marcada como activa
 			for (Flecha flecha : patronFlechas) {
 
 				if (flecha.activa) {
@@ -71,25 +74,28 @@ public class ProyectoDelta extends ApplicationAdapter {
 
 			if (flecha.flechaDireccion == 1 && Gdx.input.isKeyPressed(Keys.UP) && flecha.isNext) {
 				flecha.seleccionada = true;
+
 			}
-			
+
+
 			if (flecha.flechaDireccion == 2 && Gdx.input.isKeyPressed(Keys.LEFT)&& flecha.isNext) {
 				flecha.seleccionada = true;
+				
 			}
 			
 			if (flecha.flechaDireccion == 3 && Gdx.input.isKeyPressed(Keys.DOWN)&& flecha.isNext) {
 				flecha.seleccionada = true;
+				
 			}
 			
 			if (flecha.flechaDireccion == 4 && Gdx.input.isKeyPressed(Keys.RIGHT)&& flecha.isNext) {
 				flecha.seleccionada = true;
+				
 			}
 			
 			
 
 			
-			System.out.println(flecha.isNext + "ES SIGUIENTE\n\n");
-			System.out.println(flecha.seleccionada);
 		}
 		
 
