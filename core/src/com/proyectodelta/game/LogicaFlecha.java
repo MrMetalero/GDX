@@ -48,18 +48,6 @@ public abstract class LogicaFlecha {
                     flecha.regiontextura = regionTexturaTemp;
                     System.out.println("CAMBIADA TEXTURA");
 
-                    TimerTask nueva = new TimerTask() {
-
-                        @Override
-                        public void run() {
-                            // TODO Auto-generated method stub
-                            throw new UnsupportedOperationException("Unimplemented method 'run'");
-                        }
-                        
-                    };
-
-                    Timer.schedule(nueva, 1);
-                   
                     
                 }
                 flechasActualizadas.add(flecha); // añade las flechas al array de salida
