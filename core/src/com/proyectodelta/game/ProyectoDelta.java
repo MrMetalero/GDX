@@ -33,9 +33,12 @@ public class ProyectoDelta extends ApplicationAdapter {
 		batch.begin();
 	
 
-		
+		//Printea las flechas si no hay ya un patrón activo y no se presiona S para ocultarlo
 		if(Gdx.input.isKeyPressed(Keys.W) && !patronActivo && !Gdx.input.isKeyPressed(Keys.S)) {
-			Flecha.posicionActualFlechas = 0;
+			/*  Importante, resetea donde comienzan las flechas a printearse 
+			para que no salgan de la pantalla*/
+			Flecha.posicionActualFlechas = 0; 
+
 			patronActivo = true;
 			patronFlechas = GenerarPatron.generarPatron(7);
 
@@ -44,16 +47,17 @@ public class ProyectoDelta extends ApplicationAdapter {
 
 		if (patronActivo) {
 
-			// comprueba si se ha cambiado a activa alguna flecha
+			// comprueba si se ha cambiado a activa alguna flecha y cambia la textura de todas las activas
 			patronFlechas = LogicaFlecha.comprobarFlechaActiva(patronFlechas); 
 
+			//Debug para mostrar info de las flechas por consola
 			for (Flecha flecha : patronFlechas) {
 				System.out.println(flecha.toString());
 			}
-			// dibuja cada flecha si la flecha está marcada como activa
+			// dibuja cada flecha si la flecha está marcada para dibujarse (cada frame)
 			for (Flecha flecha : patronFlechas) {
 
-				if (flecha.activa) {
+				if (flecha.shouldDraw) {
 					batch.draw(flecha.regiontextura, flecha.posX,Flecha.posY, flecha.texturaFlechas.getWidth()/2, flecha.texturaFlechas.getHeight()/2, flecha.texturaFlechas.getWidth(), flecha.texturaFlechas.getHeight(), 1, 1, flecha.rotacion);
 					
 

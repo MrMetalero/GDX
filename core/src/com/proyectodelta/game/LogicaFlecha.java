@@ -1,11 +1,10 @@
 package com.proyectodelta.game;
 
 import com.badlogic.gdx.utils.*;
-
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.TimerTask;
-
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.TimeUtils;
@@ -20,15 +19,9 @@ public abstract class LogicaFlecha {
     public static boolean flechaNextFocus(Flecha flechaInput){
         boolean flechaActivada = false;
 
-            if (flechaInput.isNext) {
+        if (flechaInput.isNext) {
                 
-
-            }
-
-
-            
-
-
+        }
 
         return flechaActivada;
     }
@@ -40,23 +33,32 @@ public abstract class LogicaFlecha {
         Texture texturaActiva = new Texture("assets/flechaActiva.png");
         TextureRegion regionTexturaTemp = new TextureRegion(texturaActiva);
 
-            for (Flecha flecha : patronFlechas) {
-                if (flecha.seleccionada == true) {
+        Iterator<Flecha> iterator = patronFlechas.iterator();
 
+        while (iterator.hasNext()) {
+            Flecha flechaTemp = iterator.next();
+            //Se comprueba solo si se ha seleccionado la flecha
+            if (flechaTemp.seleccionada == true) {
 
-                    flecha.texturaFlechas = texturaActiva; // cambia la textura a textura activa
-                    flecha.regiontextura = regionTexturaTemp;
-                    System.out.println("CAMBIADA TEXTURA");
+                
+                flechaTemp.texturaFlechas = texturaActiva; // cambia la textura a textura activa
+                flechaTemp.regiontextura = regionTexturaTemp;
+                System.out.println("CAMBIADA TEXTURA");
 
-                    
-                }
-                flechasActualizadas.add(flecha); // añade las flechas al array de salida
+                //Deja de marcar la flecha seleccionada como la siguiente
+                flechaTemp.isNext = false;
+
+                //Elimina la flecha del patrón (Es posible que isNext no sea necesario)
+                
+
+                patronFlechas.get(patronFlechas.lastIndexOf(flechaTemp)+1).isNext = true;
+                patronFlechas.remove(flechaTemp);
             }
+            flechasActualizadas.add(flechaTemp); // añade las flechas al array de salida
 
+        }
 
-            
-
-            return flechasActualizadas;
+        return flechasActualizadas;
 
         
     }

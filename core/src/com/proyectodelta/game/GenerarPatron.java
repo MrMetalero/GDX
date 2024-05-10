@@ -25,7 +25,7 @@ public class GenerarPatron {
             Flecha flechaNueva = new Flecha(random); // Genera una flecha con una dirección random
 
             if (i == 0) {
-                flechaNueva.isNext = true;
+                flechaNueva.isNext = true; // la primera flecha generada le pone el focus
             }
             
 

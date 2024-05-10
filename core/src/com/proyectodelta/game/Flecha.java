@@ -13,9 +13,9 @@ public class Flecha{
     TextureRegion regiontextura = new TextureRegion(texturaFlechas);
 
     /**Estado */
-    boolean activa; // para comprobar si debe printearse
-    boolean seleccionada; // para comprobar si se ha pulsado la tecla correspondiente a esa flecha
-    boolean isNext = false; // comprueba si es la flecha activa ahora mismo
+    boolean shouldDraw; // comprueba si debe printearse
+    boolean seleccionada; // comprueba si se ha pulsado la tecla correspondiente a esa flecha
+    boolean isNext = false; // comprueba si es la flecha activa ahora mismo (La que se debe presionar)
 
     /**Direccion */
     int flechaDireccion = 0; // 1- 0 arriba      2- 90 izquierda      3- 180 abajo    4- 270 -derecha
@@ -33,7 +33,7 @@ public class Flecha{
     Flecha(int flechaDir){
 
         this.flechaDireccion = flechaDir;
-        activa = true;
+        shouldDraw = true;
 
         switch (flechaDireccion) {
             case 1:
@@ -81,7 +81,7 @@ public class Flecha{
 
     @Override
     public String toString() {
-        return "Flecha [texturaFlechas=" + texturaFlechas + ", regiontextura=" + regiontextura + ", activa=" + activa
+        return "Flecha [texturaFlechas=" + texturaFlechas + ", regiontextura=" + regiontextura + ", shouldDraw=" + shouldDraw
                 + ", seleccionada=" + seleccionada + ", isNext=" + isNext + ", flechaDireccion=" + flechaDireccion
                 + ", rotacion=" + rotacion + ", posX=" + posX + "]\n\n";
     }
